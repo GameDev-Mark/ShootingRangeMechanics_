@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - TargetBackLight
   layers:
   - Default
   - TransparentFX
