@@ -73,7 +73,6 @@ public class GameController : MonoBehaviour
                 _canShoot = true;
                 ammoReloadtimer = ammoReloadTimerMax;
                 reloadSlider.value = ammoReloadtimer;
-                Debug.Log("Reload");
             }
         }
     }

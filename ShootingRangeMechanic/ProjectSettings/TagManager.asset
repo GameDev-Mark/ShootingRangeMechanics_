@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Bullet
   - TargetBackLight
+  - RoomLight
+  - LeftSideTargetMover
+  - RightSideTargetMover
+  - DespawnTargetMover
+  - RespawnTargetMover
+  - Target_Small
   layers:
   - Default
   - TransparentFX

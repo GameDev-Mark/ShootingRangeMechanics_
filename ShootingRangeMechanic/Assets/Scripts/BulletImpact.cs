@@ -2,10 +2,12 @@
 
 public class BulletImpact : MonoBehaviour
 {
-    public Light targetLightChanger;
-    //GameObject targetBackLitght;
+    GameObject targetLightChanger;
 
-    Vector3 targetLightChangerVector = new Vector3(0f, 1.5f, 0.5f);
+    void Start()
+    {
+        targetLightChanger = GameObject.FindGameObjectWithTag("RoomLight");
+    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -17,49 +19,24 @@ public class BulletImpact : MonoBehaviour
 
         if (collision.GetContact(0).otherCollider.gameObject.name == "Middle") // MIDDLE OF TARGET // RED
         {
-            //collision.gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-            //collision.gameObject.GetComponentInParent<Animator>().SetTrigger("fallBack");
-            Debug.Log("MIDDLE HIT");
+            collision.gameObject.GetComponentInParent<Animator>().SetTrigger("fallBack");
+            targetLightChanger.GetComponent<Animator>().SetTrigger("_redScore");
             // 10 points hit middle target //
-
-            Light lightChanger = Instantiate(targetLightChanger, collision.gameObject.transform.position - targetLightChangerVector, Quaternion.Euler(-75f, 0f, 0f));
-            lightChanger.transform.parent = collision.gameObject.transform;
-            lightChanger.color = new Color32(255, 0, 0, 255);
-            Destroy(lightChanger, 1f);
         }
-
         if (collision.GetContact(0).otherCollider.gameObject.name == "Inner") // Inner layer of target // GREEN
         {
-            //collision.gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
             //collision.gameObject.GetComponentInParent<Animator>().SetTrigger("fallBack");
-
-            Light lightChanger = Instantiate(targetLightChanger, collision.gameObject.transform.position - targetLightChangerVector, Quaternion.Euler(-75f, 0f, 0f));
-            lightChanger.transform.parent = collision.gameObject.transform;
-            lightChanger.color = new Color32(0, 255, 0, 255);
-            Destroy(lightChanger, 1f);
-            Debug.Log("GREEN");
+            targetLightChanger.GetComponent<Animator>().SetTrigger("_greenScore");
         }
         if (collision.GetContact(0).otherCollider.gameObject.name == "Outer01") // first outer layer of target // BLUE
         {
-            //collision.gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
             //collision.gameObject.GetComponentInParent<Animator>().SetTrigger("fallBack");
-
-            Light lightChanger = Instantiate(targetLightChanger, collision.gameObject.transform.position - targetLightChangerVector, Quaternion.Euler(-75f, 0f, 0f));
-            lightChanger.transform.parent = collision.gameObject.transform;
-            lightChanger.color = new Color32(0, 0, 255, 255);
-            Destroy(lightChanger, 1f);
-            Debug.Log("BLUE");
+            targetLightChanger.GetComponent<Animator>().SetTrigger("_blueScore");
         }
-        if (collision.GetContact(0).otherCollider.gameObject.name == "TargetWhole") // Whole layer (OUTER) of target // 
+        if (collision.GetContact(0).otherCollider.gameObject.name == "TargetWhole") // Whole layer (OUTER) of target // YELLOW
         {
-            collision.gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
             //collision.gameObject.GetComponentInParent<Animator>().SetTrigger("fallBack");
-
-            Light lightChanger = Instantiate(targetLightChanger, collision.gameObject.transform.position - targetLightChangerVector, Quaternion.Euler(-75f, 0f, 0f));
-            lightChanger.transform.parent = collision.gameObject.transform;
-            lightChanger.color = Color.yellow;
-            Destroy(lightChanger, 1f);
-            Debug.Log("YELLOW");
+            targetLightChanger.GetComponent<Animator>().SetTrigger("_yellowScore");
         }
     }
 }
