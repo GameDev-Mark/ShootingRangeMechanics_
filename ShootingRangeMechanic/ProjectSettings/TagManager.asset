@@ -12,6 +12,7 @@ TagManager:
   - DespawnTargetMover
   - RespawnTargetMover
   - Target_Small
+  - Target_Tall
   layers:
   - Default
   - TransparentFX
