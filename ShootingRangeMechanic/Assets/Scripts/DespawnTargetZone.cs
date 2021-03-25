@@ -17,7 +17,6 @@ public class DespawnTargetZone : MonoBehaviour
             {
                 target_Small.transform.position = Vector3.MoveTowards(target_Small.transform.position, transform.position, 7f * Time.deltaTime);
                 target_Small.GetComponent<SmallTarget>().enabled = enabled;
-                Debug.Log("move small");
             }
         }
 

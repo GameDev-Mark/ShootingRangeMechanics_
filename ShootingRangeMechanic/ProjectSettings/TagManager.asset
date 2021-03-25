@@ -13,6 +13,7 @@ TagManager:
   - RespawnTargetMover
   - Target_Small
   - Target_Tall
+  - _scoreText
   layers:
   - Default
   - TransparentFX
