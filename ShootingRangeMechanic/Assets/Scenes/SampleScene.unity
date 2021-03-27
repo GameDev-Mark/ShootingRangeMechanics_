@@ -826,7 +826,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 18
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -870,7 +870,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.45e-43, y: -1.3114836e-11, z: 8.44e-43, w: -3.328125}
+  m_BoundingSphereOverride: {x: 0, y: 6.861e-42, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2360,7 +2360,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 5.7274e-41, z: 0, w: 9.403955e-38}
+  m_BoundingSphereOverride: {x: 2.4810396e+27, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3356,7 +3356,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 5.7184e-41, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.4810396e+27, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 3
   m_ShadowAngle: 0
@@ -4253,15 +4253,9 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 49867e0444e02454e87e406fee53ce1b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'mixamorig_Hips'\n\tTransform 'mixamorig_Head'\n\tTransform
-    'mixamorig_RightHandIndex2'\n\tTransform 'mixamorig_LeftHand'\n\tTransform 'mixamorig_LeftLeg'\n\tTransform
-    'mixamorig_RightHand'\n\tTransform 'mixamorig_LeftUpLeg'\n\tTransform 'mixamorig_LeftShoulder'\n\tTransform
-    'mixamorig_RightArm'\n\tTransform 'mixamorig_RightToeBase'\n\tand more ...\n\tFrom
-    animation clip 'ShootingHandGun'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -4857,7 +4851,7 @@ SkinnedMeshRenderer:
   m_Materials:
   - {fileID: 7361155810285926999, guid: be3f1c8b51c16864b836f90968f835e2, type: 3}
   - {fileID: 8877416403236204830, guid: be3f1c8b51c16864b836f90968f835e2, type: 3}
-  - {fileID: -7159980856239609684, guid: be3f1c8b51c16864b836f90968f835e2, type: 3}
+  - {fileID: 2100000, guid: 33c3fb523a2986f4b8c0552d1d846283, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

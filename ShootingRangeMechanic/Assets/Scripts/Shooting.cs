@@ -71,6 +71,7 @@ public class Shooting : MonoBehaviour
         {
             ammoReloadtimer -= Time.deltaTime;
             reloadSlider.value = ammoReloadtimer;
+            GetComponentInChildren<Animator>().SetTrigger("canReload");
             if (ammoReloadtimer <= ammoReloadTimerMin)
             {
                 bulletCount = bulletMax;
@@ -78,6 +79,10 @@ public class Shooting : MonoBehaviour
                 ammoReloadtimer = ammoReloadTimerMax;
                 reloadSlider.value = ammoReloadtimer;
             }
+        }
+        else
+        {
+            GetComponentInChildren<Animator>().SetTrigger("isIdle");
         }
     }
 
