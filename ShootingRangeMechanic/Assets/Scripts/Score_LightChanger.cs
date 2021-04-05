@@ -5,8 +5,11 @@ public class Score_LightChanger : MonoBehaviour
 {
     public TMP_Text scoreText; 
     public TextMesh _LiveScoreText;
+    public TextMesh scoreNeededText;
 
-    float currentScore;
+    public float currentScore;
+    public float scoreLimitPerRound;
+    public float addToScoreLimitPerRound;
     float redScore;
     float blueScore;
     float greenScore;
@@ -15,8 +18,9 @@ public class Score_LightChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = "Score : " + currentScore;
         currentScore = 0f;
+        scoreLimitPerRound = 50f;
+        addToScoreLimitPerRound = 50f;
         redScore = 50f;
         blueScore = 15f;
         greenScore = 7f;
@@ -26,7 +30,9 @@ public class Score_LightChanger : MonoBehaviour
     // unitys update function
     void Update()
     {
+        scoreText.text = "Score : " + currentScore;
         _LiveScoreText.text = scoreText.text;
+        scoreNeededText.text = "Get : " + scoreLimitPerRound;
     }
 
     // animation event - when you hit the red part of the target

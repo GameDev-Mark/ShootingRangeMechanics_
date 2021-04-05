@@ -17,7 +17,7 @@ public class Shooting : MonoBehaviour
     float ammoReloadTimerMax, ammoReloadTimerMin, ammoReloadtimer; // ammo reload min and max time
     float maxWaitTimeNextShot, minWaitTimeNextShot, waitForNextShot; // wait for x seconds between shots
 
-    bool _canShoot = true; // bool check if you have ammo
+    public bool _canShoot = true; // bool check if you have ammo
     bool _timeBetweenShots = true; // bool check between shots fired
 
     // unity's start function
@@ -56,12 +56,8 @@ public class Shooting : MonoBehaviour
             bulletCount--;
             _timeBetweenShots = false;
         }
-        else if (bulletCount <= bulletMin)
+        else if (bulletCount <= bulletMin || Input.GetKeyDown(KeyCode.R))
         { _canShoot = false; }
-        else
-        {
-            GetComponentInChildren<Animator>().SetTrigger("isIdle");
-        }
     }
 
     // waiting to reload weapon
