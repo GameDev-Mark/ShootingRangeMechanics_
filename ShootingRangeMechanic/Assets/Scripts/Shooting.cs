@@ -33,7 +33,7 @@ public class Shooting : MonoBehaviour
         ammoReloadTimerMin = 0f;
         ammoReloadtimer = ammoReloadTimerMax;
 
-        maxWaitTimeNextShot = 0.1f;
+        maxWaitTimeNextShot = 0.5f;
         minWaitTimeNextShot = 0f;
         waitForNextShot = maxWaitTimeNextShot;
     }
@@ -104,8 +104,8 @@ public class Shooting : MonoBehaviour
     void ShootBullet()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        GameObject arrowShot = Instantiate(bullet, shootingPos.position, Quaternion.Euler(90f, 0f, 0f));
-        arrowShot.GetComponent<Rigidbody>().AddForce(ray.direction * shotPower);
+        GameObject _bullet = Instantiate(bullet, shootingPos.position, Quaternion.Euler(0f, -90f, 0f));
+        _bullet.GetComponent<Rigidbody>().AddForce(ray.direction * shotPower);
         GetComponentInChildren<Animator>().SetTrigger("canShoot");
     }
 }
