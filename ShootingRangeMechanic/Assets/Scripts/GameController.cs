@@ -1,21 +1,27 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    bool nextRound;
-
     float minTimePerRound;
     float startTime;
     float currentTimeNow;
     float waitForNextRound;
     float minWaitTimeNextRound;
+    float roundNumber;
 
     public TMP_Text timerText;
     public TMP_Text waitTimeText;
+    public TMP_Text roundNumberText;
 
     public Score_LightChanger scoreScript;
     public Shooting shootingScript;
+    public Movement movementScript;
+
+    public GameObject UIbuttons;
+
+    public Texture2D cursorTexture;
 
     // unitys start function
     void Start()
@@ -25,6 +31,8 @@ public class GameController : MonoBehaviour
         currentTimeNow = startTime;
         waitForNextRound = 5f;
         minWaitTimeNextRound = 0f;
+        roundNumber = 1f;
+        roundNumberText.text = "Level : " + roundNumber;
     }
 
     // unitys update function
@@ -40,7 +48,9 @@ public class GameController : MonoBehaviour
                 waitForNextRound -= Time.deltaTime;
                 waitTimeText.text = "Hold your fire : " + Mathf.RoundToInt(waitForNextRound);
                 timerText.text = "Timer : - ";
-                shootingScript._canShoot = false;
+                shootingScript.GetComponentInChildren<Animator>().SetTrigger("isIdle");
+                shootingScript.bulletCount = shootingScript.bulletMax;
+                shootingScript.enabled = !enabled;
                 if (waitForNextRound <= minWaitTimeNextRound)
                 {
                     scoreScript.currentScore = 0f;
@@ -49,13 +59,34 @@ public class GameController : MonoBehaviour
                     scoreScript.scoreLimitPerRound += scoreScript.addToScoreLimitPerRound;
                     waitTimeText.text = "";
                     waitForNextRound = 5f;
-                    shootingScript._canShoot = true;
+                    roundNumber++;
+                    roundNumberText.text = "Level : " + roundNumber;
+                    shootingScript.enabled = enabled;
                 }
             }
             else
             {
+                UIbuttons.SetActive(true);
+                shootingScript.enabled = !enabled;
+                movementScript.enabled = !enabled;
+                waitTimeText.text = "highest round : " + Mathf.RoundToInt(roundNumber);
                 timerText.text = "Failed";
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
             }
         }
     }
+
+    // restarts the game
+    public void RestartGameButton()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    // quits the game
+    public void ExitGameButton()
+    {
+        Application.Quit();
+    }
+
 }

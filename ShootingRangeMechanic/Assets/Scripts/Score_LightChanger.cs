@@ -20,7 +20,7 @@ public class Score_LightChanger : MonoBehaviour
     {
         currentScore = 0f;
         scoreLimitPerRound = 50f;
-        addToScoreLimitPerRound = 50f;
+        addToScoreLimitPerRound = 20f;
         redScore = 50f;
         blueScore = 15f;
         greenScore = 7f;

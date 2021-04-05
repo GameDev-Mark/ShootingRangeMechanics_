@@ -13,7 +13,7 @@ public class Shooting : MonoBehaviour
     public Slider reloadSlider; // represent ammo amount on slider
 
     float shotPower; // power of bullet fired
-    float bulletCount, bulletMax, bulletMin; // bullet count, max and min amount
+    [SerializeField ]public float bulletCount, bulletMax, bulletMin; // bullet count, max and min amount
     float ammoReloadTimerMax, ammoReloadTimerMin, ammoReloadtimer; // ammo reload min and max time
     float maxWaitTimeNextShot, minWaitTimeNextShot, waitForNextShot; // wait for x seconds between shots
 
