@@ -4,8 +4,8 @@ using UnityEngine;
 public class Score_LightChanger : MonoBehaviour
 {
     public TMP_Text scoreText; 
-    public TextMesh _LiveScoreText;
-    public TextMesh scoreNeededText;
+    public TMP_Text _LiveScoreText;
+    public TMP_Text scoreNeededText;
 
     public float currentScore;
     public float scoreLimitPerRound;
