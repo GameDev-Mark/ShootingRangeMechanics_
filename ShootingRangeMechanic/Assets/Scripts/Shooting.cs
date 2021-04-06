@@ -5,6 +5,7 @@ using TMPro;
 public class Shooting : MonoBehaviour
 {
     public GameObject bullet; // bullet prefab
+    public Collider readyBox;
 
     public Transform shootingPos; // shooting position of bullet
 

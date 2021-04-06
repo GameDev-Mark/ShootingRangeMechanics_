@@ -20,8 +20,11 @@ public class GameController : MonoBehaviour
     public Movement movementScript;
 
     public GameObject UIbuttons;
+    public GameObject readyGlass;
 
     public Texture2D cursorTexture;
+
+    public AudioSource glassBreakSFX;
 
     // unitys start function
     void Start()
@@ -32,12 +35,14 @@ public class GameController : MonoBehaviour
         waitForNextRound = 5f;
         minWaitTimeNextRound = 0f;
         roundNumber = 1f;
-        roundNumberText.text = "Level : " + roundNumber;
+        roundNumberText.text = "Round : " + roundNumber;
     }
 
     // unitys update function
     void Update()
     {
+        ReadyShot();
+
         currentTimeNow -= Time.deltaTime;
         timerText.text = "Timer : " + Mathf.RoundToInt(currentTimeNow);
 
@@ -60,7 +65,7 @@ public class GameController : MonoBehaviour
                     waitTimeText.text = "";
                     waitForNextRound = 5f;
                     roundNumber++;
-                    roundNumberText.text = "Level : " + roundNumber;
+                    roundNumberText.text = "Round : " + roundNumber;
                     shootingScript.enabled = enabled;
                 }
             }
@@ -75,18 +80,41 @@ public class GameController : MonoBehaviour
                 Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
             }
         }
+
+       
+    }
+    
+    // shoot your gun when you are ready to start the game
+    public void ReadyShot()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitRay;
+        if(Input.GetMouseButtonDown(0))
+        {
+            if (Physics.Raycast(ray, out hitRay))
+            {
+                if (hitRay.collider.name == "ReadyBox")
+                {
+                    Time.timeScale = 1f;
+                    glassBreakSFX.Play();
+                    readyGlass.GetComponent<Animator>().SetTrigger("isBroke");
+                    Destroy(readyGlass, 1.5f);
+                    Debug.Log("HIT");
+                }
+            }
+        }
     }
 
     // restarts the game
     public void RestartGameButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
-    // quits the game
+    // quits to main menu
     public void ExitGameButton()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 
 }
