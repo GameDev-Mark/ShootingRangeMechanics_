@@ -10,6 +10,9 @@ public class GameController : MonoBehaviour
     float waitForNextRound;
     float minWaitTimeNextRound;
     float roundNumber;
+    float animationDisappearTime;
+
+    bool _animationDisappear;
 
     public TMP_Text timerText;
     public TMP_Text waitTimeText;
@@ -18,6 +21,7 @@ public class GameController : MonoBehaviour
     public Score_LightChanger scoreScript;
     public Shooting shootingScript;
     public Movement movementScript;
+    public GameObject respawnScript;
 
     public GameObject UIbuttons;
     public GameObject readyGlass;
@@ -36,12 +40,33 @@ public class GameController : MonoBehaviour
         minWaitTimeNextRound = 0f;
         roundNumber = 1f;
         roundNumberText.text = "Round : " + roundNumber;
+        animationDisappearTime = 1.5f;
     }
 
     // unitys update function
     void Update()
     {
         ReadyShot();
+        EscapeGame();
+
+        if(readyGlass.activeInHierarchy)
+        {
+            respawnScript.SetActive(false);
+        }
+        else
+        {
+            respawnScript.SetActive(true);
+        }
+
+        if(_animationDisappear)
+        {
+            animationDisappearTime -= Time.deltaTime;
+            if (animationDisappearTime <= 0f)
+            {
+                readyGlass.SetActive(false);
+                _animationDisappear = false;
+            }
+        }
 
         currentTimeNow -= Time.deltaTime;
         timerText.text = "Timer : " + Mathf.RoundToInt(currentTimeNow);
@@ -98,10 +123,19 @@ public class GameController : MonoBehaviour
                     Time.timeScale = 1f;
                     glassBreakSFX.Play();
                     readyGlass.GetComponent<Animator>().SetTrigger("isBroke");
-                    Destroy(readyGlass, 1.5f);
+                    _animationDisappear = true;
                     Debug.Log("HIT");
                 }
             }
+        }
+    }
+
+    // press escape key to quit game
+    void EscapeGame()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 
@@ -109,6 +143,7 @@ public class GameController : MonoBehaviour
     public void RestartGameButton()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 0f;
     }
 
     // quits to main menu

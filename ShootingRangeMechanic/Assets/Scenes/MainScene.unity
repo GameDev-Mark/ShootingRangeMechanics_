@@ -6747,14 +6747,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 789028277}
-  - {fileID: 1233055389}
   m_Father: {fileID: 909924506}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.011458524, y: 0.3584837}
-  m_AnchorMax: {x: 0.28111467, y: 0.648}
-  m_AnchoredPosition: {x: 3.1073914, y: -0.25567245}
-  m_SizeDelta: {x: 5.0160675, y: -4.723629}
+  m_AnchorMin: {x: 0, y: 0.27848375}
+  m_AnchorMax: {x: 0.298, y: 0.71800005}
+  m_AnchoredPosition: {x: -5.8926086, y: 0.24432755}
+  m_SizeDelta: {x: -9.9839325, y: -19.723629}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &414516146
 MonoBehaviour:
@@ -11987,7 +11986,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.11605e-40, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 5.82e-43, y: 7.1e-44, z: 0, w: 5.7671423e-10}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -13284,6 +13283,7 @@ MonoBehaviour:
   scoreScript: {fileID: 1673346138}
   shootingScript: {fileID: 1515574424}
   movementScript: {fileID: 963194229}
+  respawnScript: {fileID: 575199591}
   UIbuttons: {fileID: 909924505}
   readyGlass: {fileID: 452608159}
   cursorTexture: {fileID: 2800000, guid: 9944d1c7d2191cc459d0ae682c35a202, type: 3}
@@ -13914,41 +13914,6 @@ Transform:
   m_Father: {fileID: 1540946875}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
---- !u!1 &1233055388
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1233055389}
-  m_Layer: 5
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1233055389
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233055388}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 414516145}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1238016389
 GameObject:
   m_ObjectHideFlags: 0
@@ -15953,7 +15918,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.11145e-40, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 4.6792e-41, z: 0, w: -1}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -16970,10 +16935,10 @@ RectTransform:
   m_Father: {fileID: 909924506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6952806, y: 0.4084837}
-  m_AnchorMax: {x: 0.9868854, y: 0.648}
-  m_AnchoredPosition: {x: 1.5924683, y: -2.2696838}
-  m_SizeDelta: {x: 2.3904724, y: -0.4781189}
+  m_AnchorMin: {x: 0.684, y: 0.34848377}
+  m_AnchorMax: {x: 1, y: 0.748}
+  m_AnchoredPosition: {x: -5.4075317, y: -4.269684}
+  m_SizeDelta: {x: -10.609528, y: -16.478119}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1958899316
 MonoBehaviour:
@@ -17840,7 +17805,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.11622e-40, z: 0, w: 9.403955e-38}
+  m_BoundingSphereOverride: {x: 0, y: 4.6949e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 3
   m_ShadowAngle: 0

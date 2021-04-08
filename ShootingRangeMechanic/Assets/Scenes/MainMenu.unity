@@ -44,14 +44,14 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
+    m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 12
@@ -72,7 +72,7 @@ LightmapSettings:
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
-    m_BakeBackend: 2
+    m_BakeBackend: 1
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 512
@@ -624,8 +624,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorTexture: {fileID: 2800000, guid: 9944d1c7d2191cc459d0ae682c35a202, type: 3}
   gunshotClick: {fileID: 199729981}
-  settingsMenuButton: {fileID: 1512889788}
-  volumeSlider: {fileID: 199031864}
 --- !u!4 &216554249
 Transform:
   m_ObjectHideFlags: 0
@@ -685,7 +683,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.05
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1469,7 +1467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13000001, y: 0.5}
   m_AnchorMax: {x: 0.873, y: 0.7873241}
-  m_AnchoredPosition: {x: -1.5708618, y: -2.418396}
+  m_AnchoredPosition: {x: -1.5708466, y: -2.418396}
   m_SizeDelta: {x: -175.6535, y: -96.147766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1348511487

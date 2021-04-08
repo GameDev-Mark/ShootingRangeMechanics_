@@ -23,13 +23,13 @@ public class Movement : MonoBehaviour
         rotationUp_DownSpeed = 2f;
         lookDownMin = -20f;
         lookUpMax = 25f;
-
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // unity's update function
     void Update()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+
         // look rotation up and down
         up_downRot.x += Input.GetAxis("Mouse Y") * rotationUp_DownSpeed * (-1);
         up_downRot.x = Mathf.Clamp(up_downRot.x, lookDownMin, lookUpMax);
